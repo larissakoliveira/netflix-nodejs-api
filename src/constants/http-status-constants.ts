@@ -1,3 +1,4 @@
 export default {
-  CREATED: 201
+  CREATED: 201,
+  OK: 200
 }
