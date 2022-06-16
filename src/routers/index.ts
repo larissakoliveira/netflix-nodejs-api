@@ -1,9 +1,9 @@
 import express, { Application } from "express"
 import morgan from "morgan"
-import MoviesRouter from "./movies.routers"
+import ShowsRouter from "./shows.routers"
 
 const routes = [
-  MoviesRouter
+  ShowsRouter
 ]
 const jsonParserMiddleware = express.json()
 

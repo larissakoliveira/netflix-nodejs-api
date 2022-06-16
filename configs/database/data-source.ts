@@ -3,8 +3,6 @@ import dotenv from 'dotenv';
 import { DataSource } from "typeorm"
 // import { ConnectionOptions } from 'typeorm';
 
-import Movie from "../../src/entities/movie.entity"
-
 dotenv.config()
 
 export const AppDataSource = new DataSource({
@@ -14,7 +12,7 @@ export const AppDataSource = new DataSource({
   username: 'root',
   password: process.env.MYSQL_PASSWORD,
   database: process.env.MYSQL_DB_NAME,
-  entities: [Movie],
+  entities: ["src/entities/*.entity.ts"],
   synchronize: true
 })
 
