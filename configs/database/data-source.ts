@@ -28,7 +28,7 @@ async function databaseInitialize() {
 
 export default databaseInitialize
 
-const devConfig = {}
+// const devConfig = {}
 
-const prodConfig = {}
+// const prodConfig = {}
 // export default process.env.NODE_ENV === 'production' ? prodConfig : devConfig;
