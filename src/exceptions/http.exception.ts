@@ -1,8 +1,7 @@
-import HTTP_STATUS from "../types/enums/http-status-constants";
+import { HTTP_STATUS } from "../types/enums";
 
 abstract class HttpException extends Error {
   message: string;
-
   status: HTTP_STATUS;
 
   constructor(message: string, status: HTTP_STATUS) {

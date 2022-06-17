@@ -1,13 +1,19 @@
-import { NextFunction, Request, Response } from "express";
-import { Schema } from "joi";
+import { Schema } from "joi"
+import { NextFunction, Request } from "express"
+import { CustomResponse } from "../types/interfaces"
+import { ValidationException } from "../exceptions"
 
-const validationMiddleware = (schema: Schema) => async (req: Request, res: Response, next: NextFunction) => {
+const validationMiddleware = (schema: Schema) => async (req: Request, res: CustomResponse, next: NextFunction) => {
   try {
-    await schema.validateAsync(req.body)
+    const validated = await schema.validate(req.body, { abortEarly: false })
+
+    if (validated.error) {
+      throw new ValidationException("Invalid fields", validated.error?.details)
+    }
     next()
-  } catch (error: any) {
-    res.status(400).json({ error: true, message: error.message })
+  } catch (error) {
+    res.errorHandler && res.errorHandler(error)
   }
 }
 
-export default validationMiddleware
+export default validationMiddleware;

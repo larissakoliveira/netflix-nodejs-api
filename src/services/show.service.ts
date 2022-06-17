@@ -1,11 +1,8 @@
 import { Repository } from "typeorm"
 import { AppDataSource } from "../../configs/database/data-source"
+import { NotFoundException } from '../exceptions'
+import { CreateShowDTO, IShow } from "../types/interfaces"
 import { Show } from "../entities"
-import { IShow } from "../types/interfaces"
-import NotFoundException from '../exceptions/not-found-exception';
-// class Repo<T>{
-//   find():Promise<T>
-// }
 
 class ShowService {
   private showRepository: Repository<IShow>
@@ -18,11 +15,13 @@ class ShowService {
    * Create new shows
    *
    * @returns Retrive created show
-   *
+   * @param {IShow} show show data
    * @beta
    */
 
-  create(show: IShow){
+  create(show: CreateShowDTO){
+    // const movieTitle = show.title
+    // const movieAlreadyExists = this.showRepository.find({ title: show.title });
     return this.showRepository.save(show)
   }
 
@@ -41,7 +40,7 @@ class ShowService {
    * Retrive a show by its id
    *
    * @returns Retrive one show
-   *
+   * @param {number} id show id
    * @beta
    */
     async listById(id: number) {
@@ -49,29 +48,31 @@ class ShowService {
       if (show) {
         return show;
       }
-      throw new NotFoundException(`The show with id = ${id} was not found`);
+      throw new NotFoundException(`The show id = ${id} was not found`);
     }
 
      /**
    * Update a show by id
    *
    * @returns Update one show
-   *
+   * @param {number} id show id
+   * @param {IShow} updatedData body sent with show data to update
    * @beta
    */
       async updateById(id: number, updatedData: IShow) {
         const show = await this.showRepository.update({ id }, updatedData);
-        if (show) {
-          return show;
+        console.log(show)
+        if (show.affected === 0) {
+          throw new NotFoundException(`The show with id = ${id} was not found`);
         }
-        throw new NotFoundException(`The show with id = ${id} was not found`);
+        return show
       }
 
     /**
    * Delete a show by its id
    *
    * @returns Delete one show
-   *
+   * @param {number} id show id
    * @beta
    */
     async deleteById(id: number) {
@@ -79,7 +80,7 @@ class ShowService {
       if (show.affected) {
         return show;
       }
-      throw new NotFoundException(`The show with id = ${id} was not found`);
+      throw new NotFoundException(`The show id = ${id} was not found`);
     }
 }
 
