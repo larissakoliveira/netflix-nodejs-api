@@ -17,7 +17,10 @@ module.exports = {
   rules: {
     'space-before-function-paren': 'off',
     'space-before-blocks': 'off',
+    'no-unused-vars': 'off',
+    "@typescript-eslint/no-unused-vars": 'error',
     semi: 'off',
-    quotes: 'off'
+    quotes: 'off',
+    indent: 0
   }
 }
