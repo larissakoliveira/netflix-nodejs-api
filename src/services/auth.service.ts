@@ -29,7 +29,7 @@ class AuthService {
         sub: user.id,
         iat: Date.now(),
         email: user.email
-      }, "process.env.SECRET_KEY")
+      }, "my_secret_key")
 
     return {
       token
