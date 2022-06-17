@@ -1,6 +1,6 @@
 import { Repository } from "typeorm"
 import { AppDataSource } from "../../configs/database/data-source"
-import { NotFoundException } from '../exceptions'
+import { NotFoundException, ConflictException } from '../exceptions'
 import { CreateShowDTO, IShow } from "../types/interfaces"
 import { Show } from "../entities"
 
@@ -19,9 +19,11 @@ class ShowService {
    * @beta
    */
 
-  create(show: CreateShowDTO){
-    // const movieTitle = show.title
-    // const movieAlreadyExists = this.showRepository.find({ title: show.title });
+  async create(show: CreateShowDTO){
+    const movieAlreadyExists = await this.showRepository.findOneBy({ title: show.title })
+    if (movieAlreadyExists !== null) {
+      throw new ConflictException("A movie with this title already exists.")
+    }
     return this.showRepository.save(show)
   }
 

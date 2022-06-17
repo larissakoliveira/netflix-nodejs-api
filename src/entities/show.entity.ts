@@ -9,7 +9,8 @@ class Show {
   @Column({ length: 200 })
   cover: string
 
-  @Column({ length: 45 })
+  // @Index({ unique: true })
+  @Column({ length: 45, unique: true })
   title: string
 
   @Column({ length: 100 })
