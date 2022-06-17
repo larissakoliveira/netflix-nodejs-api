@@ -16,7 +16,6 @@ const opts = {
 }
 
 const strategy = new JwtStrategy(opts, function(payload, done) {
-  console.log(payload)
   return done(null, {});
 })
 
