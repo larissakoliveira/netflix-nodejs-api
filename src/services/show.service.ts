@@ -61,7 +61,6 @@ class ShowService {
    */
       async updateById(id: number, updatedData: IShow) {
         const show = await this.showRepository.update({ id }, updatedData);
-        console.log(show)
         if (show.affected === 0) {
           throw new NotFoundException(`The show with id = ${id} was not found`);
         }

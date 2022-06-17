@@ -6,7 +6,7 @@ const createShowSchema = Joi.object({
   cover: Joi.string().required(),
   title: Joi.string().required(),
   director: Joi.string().required(),
-  actors: Joi.array().items(Joi.string()),
+  actors: Joi.array().items(Joi.string()).required(),
   description: Joi.string().required(),
   category: JoiEnumOfString(ShowCategoryOptions)
 })
