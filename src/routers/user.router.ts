@@ -1,8 +1,7 @@
 import express from "express"
-
+import { createUserSchema } from '../schemas'
 import { UserController } from "../controllers"
 import { validationMiddleware } from "../middlewares"
-import { createUserSchema } from '../schemas';
 
 const userRouter = express.Router()
 

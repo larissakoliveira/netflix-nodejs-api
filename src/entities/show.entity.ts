@@ -25,7 +25,7 @@ class Show {
   @Column({ type: 'enum', default: ShowCategoryOptions.MOVIE, enum: ShowCategoryOptions })
   category: ShowCategoryOptions
 
-  @OneToMany(() => Episode, episode => episode.show, { eager: true })
+  @OneToMany(() => Episode, episode => episode.show, { eager: true, onDelete: "CASCADE" })
   episodes: Episode[]
 }
 

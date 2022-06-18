@@ -1,22 +1,22 @@
 import { Repository } from "typeorm"
+import { Show } from "../entities"
+import { CreateShowDTO, IShowUpdate } from "../types/interfaces"
 import { AppDataSource } from "../../configs/database/data-source"
 import { NotFoundException, ConflictException } from '../exceptions'
-import { CreateShowDTO, IShow, IShowUpdate } from "../types/interfaces"
-import { Episode, Show } from "../entities"
 
 class ShowService {
-  private showRepository: Repository<IShow>
-  private episodeRepository: Repository<Episode>
+  private showRepository: Repository<Show>
+  // private episodeRepository: Repository<Episode>
 
   constructor() {
     this.showRepository = AppDataSource.getRepository(Show)
-    this.episodeRepository = AppDataSource.getRepository(Episode)
+    // this.episodeRepository = AppDataSource.getRepository(Episode)
   }
 
    /**
    * Create new shows
    *
-   * @returns Retrive created show
+   * @returns Retrieve created show
    * @param {IShow} show show data
    */
 
@@ -29,9 +29,9 @@ class ShowService {
   }
 
    /**
-   * Retrive all shows
+   * Retrieve all shows
    *
-   * @returns Retrive all shows
+   * @returns Retrieve all shows
    *
    */
     list() {
@@ -39,9 +39,9 @@ class ShowService {
     }
 
    /**
-   * Retrive a show by its id
+   * Retrieve a show by its id
    *
-   * @returns Retrive one show
+   * @returns Retrieve one show
    * @param {number} id show id
    */
     async listById(id: number) {
@@ -49,7 +49,7 @@ class ShowService {
       if (show) {
         return show;
       }
-      throw new NotFoundException(`The show id = ${id} was not found`);
+      throw new NotFoundException(`The show id ${id} was not found`);
     }
 
      /**
@@ -79,7 +79,7 @@ class ShowService {
       if (show.affected) {
         return deletedShow
       }
-      throw new NotFoundException(`The show id = ${id} was not found`);
+      throw new NotFoundException(`The show id ${id} was not found`);
     }
 }
 

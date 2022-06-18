@@ -1,9 +1,9 @@
 import bcrypt from "bcrypt"
-import { Repository } from 'typeorm';
-import { User } from '../entities';
-import { CreateUserDTO } from '../types/interfaces';
-import { AppDataSource } from '../../configs/database/data-source';
-import { ConflictException } from "../exceptions";
+import { User } from '../entities'
+import { Repository } from 'typeorm'
+import { ConflictException } from "../exceptions"
+import { CreateUserDTO } from '../types/interfaces'
+import { AppDataSource } from '../../configs/database/data-source'
 
 class UserService {
   userRepository: Repository<User>
@@ -45,13 +45,14 @@ class UserService {
      async create(createUserDTO: CreateUserDTO){
       const { email, password } = createUserDTO
       const emailAlreadyExists = await this.emailAlreadyExists(email)
+
       if (emailAlreadyExists){
         throw new ConflictException("User already exists")
       }
 
       const newUserData = {
         email,
-        password: bcrypt.hashSync(password, 10)
+        password: await bcrypt.hash(password, 10)
       }
        return this.userRepository.save(newUserData)
      }

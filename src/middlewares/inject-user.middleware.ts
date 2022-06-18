@@ -13,7 +13,7 @@ const injectUser = async (req: CustomRequest, res: CustomResponse, next: NextFun
   }
 
   const userRepository = AppDataSource.getRepository(User)
-  const secretKey = process.env.SECRET || ""
+  const secretKey = process.env.SECRET_KEY || ""
   const payload = await jsonwebtoken.verify(token, secretKey)
 
   if (!payload.sub) {

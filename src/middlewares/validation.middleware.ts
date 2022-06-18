@@ -1,7 +1,7 @@
 import { Schema } from "joi"
 import { NextFunction, Request } from "express"
-import { CustomResponse } from "../types/interfaces"
 import { ValidationException } from "../exceptions"
+import { CustomResponse } from "../types/interfaces"
 
 const validationMiddleware = (schema: Schema) => async (req: Request, res: CustomResponse, next: NextFunction) => {
   try {

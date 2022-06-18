@@ -18,7 +18,7 @@ class Episode {
   @Column()
   duration: number;
 
-  @ManyToOne(() => Show, show => show.episodes)
+  @ManyToOne(() => Show, show => show.episodes, { onDelete: "CASCADE" })
   show: Show
 }
 
