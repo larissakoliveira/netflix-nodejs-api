@@ -29,7 +29,7 @@ It is being developed in accordance with **best practices** of directory/files, 
 
 ### API 
 #### Diagram
-![image](https://user-images.githubusercontent.com/82476805/174417123-575d3479-15ad-4ce7-a931-078c795f821e.png)
+![image](https://user-images.githubusercontent.com/82476805/174439383-2e947eb3-3e8d-496b-b5ca-09fcc2c7c8d9.png)
 
 #### Endpoints
 **Autenticação**
