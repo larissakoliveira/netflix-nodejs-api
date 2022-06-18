@@ -16,7 +16,7 @@ This project is the back-end made for this [Front-End](https://github.com/lariss
 ### Table of Contents
 =================
    * [Description](#Description)
-   * [API Diagram](#API)
+   * [API](#API)
    * [Techs](#Techs)
    * [Status](#Status)
    * [Author](#Author)
@@ -27,10 +27,25 @@ This project is the back-end made for this [Front-End](https://github.com/lariss
 This project is a simple clone of Netflix. It is being done during an incredible bootcamp by Etho / McFadyen. 
 It is being developed in accordance with **best practices** of directory/files, structures and coding.
 
-### API Diagram and Endpoints
-![image](https://user-images.githubusercontent.com/82476805/174398360-beaf2168-3f6b-4284-b772-fe2b27111c3a.png)
+### API 
+#### Diagram
+![image](https://user-images.githubusercontent.com/82476805/174417123-575d3479-15ad-4ce7-a931-078c795f821e.png)
 
-[Diagram](https://www.evernote.com/shard/s638/client/snv?noteGuid=cd0d76ab-38aa-428c-566d-6cefd9354905&noteKey=da68f60fc22a7b922e86c427fb9cd590&sn=https%3A%2F%2Fwww.evernote.com%2Fshard%2Fs638%2Fsh%2Fcd0d76ab-38aa-428c-566d-6cefd9354905%2Fda68f60fc22a7b922e86c427fb9cd590&title=API%2BFilmes%2Be%2BS%25C3%25A9ries%2BNetflix)
+#### Endpoints
+**Autenticação**
+
+POST /auth - OK
+
+Request body
+`{
+  "email": "bruno@ethosolucoes.com.br",
+  "password": "abcbanana"
+}`
+Response body
+`{
+  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c"
+}
+`
 
 ### Techs
 
