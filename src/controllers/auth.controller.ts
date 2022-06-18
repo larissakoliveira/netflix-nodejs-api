@@ -13,7 +13,7 @@ class AuthController {
       const authenticatedUser = await authService.login(email, password)
       res.json(authenticatedUser).status(HTTP_STATUS.OK)
     } catch (e) {
-      console.log(`Error login user! Data: ${JSON.stringify({ email })}`)
+      console.log(`Error while login user! Data: ${JSON.stringify({ email })}`)
       res.errorHandler && res.errorHandler(e)
     }
   }
