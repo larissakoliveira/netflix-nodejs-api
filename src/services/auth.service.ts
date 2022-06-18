@@ -25,11 +25,14 @@ class AuthService {
       if (!verifyPassword){
         throw new UnauthorizedException()
       }
+
+      const secretKey = process.env.SECRET || ""
+
       const token = jwt.sign({
         sub: user.id,
         iat: Date.now(),
         email: user.email
-      }, "my_secret_key")
+      }, secretKey)
 
     return {
       token
