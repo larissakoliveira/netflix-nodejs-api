@@ -1,7 +1,7 @@
 import { Request } from 'express';
 import { AuthService } from '../services';
 import { CustomResponse } from '../types/interfaces';
-import HTTP_STATUS from '../types/enums/http-status-constants';
+import { HTTP_STATUS } from '../types/enums';
 
 const authService = new AuthService()
 

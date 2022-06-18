@@ -1,8 +1,8 @@
-import { AppDataSource } from "../../configs/database/data-source";
+import { AppDataSource } from "../infrastructure/database/data-source";
 import { User } from "../entities";
-import { UnauthorizedException } from "../exceptions";
 import { ListService } from "../services";
 import { HTTP_STATUS } from "../types/enums"
+import { UnauthorizedException } from "../exceptions";
 import { CustomRequest, CustomResponse } from "../types/interfaces"
 
 const listService = new ListService()

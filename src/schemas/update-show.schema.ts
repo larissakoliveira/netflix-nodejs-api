@@ -1,6 +1,6 @@
-import Joi from "joi";
-import { ShowCategoryOptions } from "../types/enums";
-import { JoiEnumOfString } from "../utils";
+import Joi from "joi"
+import { JoiEnumOfString } from "../utils"
+import { ShowCategoryOptions } from "../types/enums"
 
 const updateShowSchema = Joi.object({
   cover: Joi.string(),

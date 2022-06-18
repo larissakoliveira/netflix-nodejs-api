@@ -1,9 +1,9 @@
 import { NextFunction } from "express"
 import jsonwebtoken from "jsonwebtoken"
 import { User } from "../entities"
-import { AppDataSource } from "../../configs/database/data-source"
-import { CustomResponse, CustomRequest } from "../types/interfaces"
 import { UnauthorizedException } from "../exceptions"
+import { CustomResponse, CustomRequest } from "../types/interfaces"
+import { AppDataSource } from "../infrastructure/database/data-source"
 
 const injectUser = async (req: CustomRequest, res: CustomResponse, next: NextFunction) => {
   const token = req.headers.authorization?.replace("Bearer ", "")

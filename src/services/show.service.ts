@@ -1,8 +1,8 @@
 import { Repository } from "typeorm"
 import { Show } from "../entities"
 import { CreateShowDTO, IShowUpdate } from "../types/interfaces"
-import { AppDataSource } from "../../configs/database/data-source"
 import { NotFoundException, ConflictException } from '../exceptions'
+import { AppDataSource } from "../infrastructure/database/data-source"
 
 class ShowService {
   private showRepository: Repository<Show>
