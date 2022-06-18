@@ -1,14 +1,16 @@
 import { Repository } from "typeorm"
 import { AppDataSource } from "../../configs/database/data-source"
 import { NotFoundException, ConflictException } from '../exceptions'
-import { CreateShowDTO, IShow } from "../types/interfaces"
-import { Show } from "../entities"
+import { CreateShowDTO, IShow, IShowUpdate } from "../types/interfaces"
+import { Episode, Show } from "../entities"
 
 class ShowService {
   private showRepository: Repository<IShow>
+  private episodeRepository: Repository<Episode>
 
   constructor() {
     this.showRepository = AppDataSource.getRepository(Show)
+    this.episodeRepository = AppDataSource.getRepository(Episode)
   }
 
    /**
@@ -57,12 +59,12 @@ class ShowService {
    * @param {number} id show id
    * @param {IShow} updatedData body sent with show data to update
    */
-      async updateById(id: number, updatedData: IShow) {
+      async updateById(id: number, updatedData: IShowUpdate) {
         const show = await this.showRepository.update({ id }, updatedData);
         if (show.affected === 0) {
           throw new NotFoundException(`The show with id = ${id} was not found`);
         }
-        return show
+        return updatedData
       }
 
     /**

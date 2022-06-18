@@ -4,11 +4,13 @@ import ShowsRouter from "./shows.routers"
 import { errorHandlerMiddleware } from "../middlewares"
 import AuthRouter from "./auth.router"
 import UserRouter from './user.router';
+import EpisodesRouter from "./episode.router"
 
 const routes = [
   ShowsRouter,
   AuthRouter,
-  UserRouter
+  UserRouter,
+  EpisodesRouter
 ]
 const jsonParserMiddleware = express.json()
 
