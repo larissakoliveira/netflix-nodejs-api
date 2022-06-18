@@ -16,7 +16,6 @@ class ShowService {
    *
    * @returns Retrive created show
    * @param {IShow} show show data
-   * @beta
    */
 
   async create(show: CreateShowDTO){
@@ -32,7 +31,6 @@ class ShowService {
    *
    * @returns Retrive all shows
    *
-   * @beta
    */
     list() {
       return this.showRepository.find()
@@ -43,7 +41,6 @@ class ShowService {
    *
    * @returns Retrive one show
    * @param {number} id show id
-   * @beta
    */
     async listById(id: number) {
       const show = await this.showRepository.findOne({ where: { id } });
@@ -59,7 +56,6 @@ class ShowService {
    * @returns Update one show
    * @param {number} id show id
    * @param {IShow} updatedData body sent with show data to update
-   * @beta
    */
       async updateById(id: number, updatedData: IShow) {
         const show = await this.showRepository.update({ id }, updatedData);
@@ -74,12 +70,12 @@ class ShowService {
    *
    * @returns Delete one show
    * @param {number} id show id
-   * @beta
    */
     async deleteById(id: number) {
+      const deletedShow = await this.showRepository.findOne({ where: { id } });
       const show = await this.showRepository.delete(id);
       if (show.affected) {
-        return show;
+        return deletedShow
       }
       throw new NotFoundException(`The show id = ${id} was not found`);
     }
