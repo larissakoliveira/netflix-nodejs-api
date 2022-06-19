@@ -33,19 +33,19 @@ It is being developed in accordance with **best practices** of directory/files, 
 
 #### Endpoints
 
-##### POST /user
-##### POST /auth 
+* POST /user
+* POST /auth 
 
-### **Authentication token required for all endpoins below**
-##### POST /shows
-##### GET /shows
-##### GET /shows/id
-##### PATCH /shows/id
-##### DELETE /shows/id
-##### POST /list
-##### GET /list
-##### DELETE /list
-##### POST /episodes
+## **Authentication token required for all endpoins below**
+* POST /shows
+* GET /shows
+* GET /shows/id
+* PATCH /shows/id
+* DELETE /shows/id
+* POST /list
+* GET /list
+* DELETE /list
+* POST /episodes
 
 ### Techs
 
