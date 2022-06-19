@@ -5,7 +5,7 @@ import { UnauthorizedException } from "../exceptions"
 import { CustomResponse, CustomRequest } from "../types/interfaces"
 import { AppDataSource } from "../infrastructure/database/data-source"
 
-const injectUser = async (req: CustomRequest, res: CustomResponse, next: NextFunction) => {
+const injectUser = async (req: CustomRequest, _: CustomResponse, next: NextFunction) => {
   const token = req.headers.authorization?.replace("Bearer ", "")
 
   if (!token) {

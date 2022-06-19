@@ -35,3 +35,5 @@ startRoutes(app)
 app.listen(PORT, () => {
   console.log(`Listening port: ${PORT}`)
 })
+
+export default app

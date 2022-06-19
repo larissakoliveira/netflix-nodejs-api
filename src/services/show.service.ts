@@ -58,11 +58,19 @@ class ShowService {
    * @param {IShow} updatedData body sent with show data to update
    */
       async updateById(id: number, updatedData: IShowUpdate) {
-        const show = await this.showRepository.update({ id }, updatedData);
-        if (show.affected === 0) {
-          throw new NotFoundException(`The show with id = ${id} was not found`);
+          const shows = await this.showRepository.find()
+          const titleAlreadyExists = shows.filter((show) => show.title === updatedData.title)
+
+          if (titleAlreadyExists.length > 0) {
+            throw new ConflictException("A show with this title already exists")
         }
-        return updatedData
+
+        const show = await this.showRepository.update({ id }, updatedData)
+        if (show.affected === 0) {
+          throw new NotFoundException(`The show with id = ${id} was not found`)
+        }
+        const updatedShow = await this.showRepository.findOne({ where: { id } })
+        return updatedShow
       }
 
     /**
