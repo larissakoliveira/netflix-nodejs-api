@@ -36,8 +36,10 @@ It is being developed in accordance with **best practices** of directory/files, 
 #### POST /user
 <p>Correct request with all fields required</p>
 ![image](https://user-images.githubusercontent.com/82476805/174492787-b32abae3-9c23-41e8-8940-2d2e8f221ec7.png)
+
 <p>Password does not meet minimum security requirements</p>
 ![image](https://user-images.githubusercontent.com/82476805/174492809-89abb621-51d2-41df-a19c-127fb303a8af.png)
+
 <p>User already exists</p>
 ![image](https://user-images.githubusercontent.com/82476805/174494245-190074c1-c524-47a3-aafa-7058ab654c0e.png)
 
