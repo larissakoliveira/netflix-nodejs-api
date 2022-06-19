@@ -29,12 +29,18 @@ It is being developed in accordance with **best practices** of directory/files, 
 
 ### API 
 #### Diagram
-![image](https://user-images.githubusercontent.com/82476805/174439383-2e947eb3-3e8d-496b-b5ca-09fcc2c7c8d9.png)
+![image](https://user-images.githubusercontent.com/82476805/174491343-a25bb97d-2ef0-48d6-bb9a-754d2f5e0947.png)
 
 #### Endpoints
 **Autenticação**
 
-POST /auth - OK
+<p>POST /user </p>
+<p>POST /auth </p>
+<p>POST /shows </p>
+<p>POST /shows/id </p>
+<p>POST /list </p>
+<p>POST /list/id </p>
+<p>POST /episodes </p>
 
 Request body
 `{
@@ -63,6 +69,8 @@ Response body
    * [Passport.js](https://www.passportjs.org/packages/passport-npm/)
    * [Eslint](https://eslint.org/)
    * [Morgan](https://expressjs.com/en/resources/middleware/morgan.html)
+   * [Swagger](https://swagger.io/docs/)
+   * [Jest](https://jestjs.io/pt-BR/)
 
  ### Status
  
