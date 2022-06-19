@@ -1,8 +1,8 @@
-import { Repository } from "typeorm";
+import { Repository } from "typeorm"
 import { Show, Episode } from "../entities"
 import { CreateEpisodeDTO } from "../types/type"
 import { BadRequestException } from "../exceptions"
-import { AppDataSource } from "../../configs/database/data-source"
+import { AppDataSource } from "../infrastructure/database/data-source"
 
 class EpisodeService {
   private episodeRepository: Repository<Episode>

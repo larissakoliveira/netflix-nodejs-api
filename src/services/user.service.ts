@@ -3,7 +3,7 @@ import { User } from '../entities'
 import { Repository } from 'typeorm'
 import { ConflictException } from "../exceptions"
 import { CreateUserDTO } from '../types/interfaces'
-import { AppDataSource } from '../../configs/database/data-source'
+import { AppDataSource } from '../infrastructure/database/data-source'
 
 class UserService {
   userRepository: Repository<User>

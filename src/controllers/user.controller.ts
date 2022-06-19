@@ -1,9 +1,11 @@
-import { Request } from 'express';
-import { UserService } from '../services';
-import { HTTP_STATUS } from '../types/enums';
-import { CustomResponse } from '../types/interfaces';
+import { Request } from 'express'
+import { UserService } from '../services'
+import { HTTP_STATUS } from '../types/enums'
+import logger from '../infrastructure/logger/logger'
+import { CustomResponse } from '../types/interfaces'
 
 const userService = new UserService()
+const winstonLogger = logger({ controller: "UserController" })
 
 class UserController {
   public static async create(req: Request, res: CustomResponse) {
@@ -15,7 +17,7 @@ class UserController {
         email: user.email
       }).status(HTTP_STATUS.CREATED)
     } catch (error) {
-      console.log(`Error creating user! DATA: ${JSON.stringify(body.email)}`)
+      winstonLogger.error(`Error creating user! DATA: ${JSON.stringify(body.email)}`)
       res.errorHandler && res.errorHandler(error)
     }
   }

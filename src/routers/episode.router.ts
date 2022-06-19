@@ -1,8 +1,8 @@
 import express from "express"
 import passport from "passport";
+import { CreateEpisodeSchema } from "../schemas"
 import { EpisodeController } from "../controllers"
 import { validationMiddleware } from "../middlewares"
-import { CreateEpisodeSchema } from "../schemas"
 
 const episodesRouter = express.Router()
 
