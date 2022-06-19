@@ -36,7 +36,7 @@ It is being developed in accordance with **best practices** of directory/files, 
 * POST /user
 * POST /auth 
 
-## **Authentication token required for all endpoins below**
+##### **Authentication token required for all endpoins below**
 * POST /shows
 * GET /shows
 * GET /shows/id
@@ -76,6 +76,6 @@ It is being developed in accordance with **best practices** of directory/files, 
 ---
 Made with ❤️ by Larissa Oliveira 👋🏽 Get in touch!
 
-<a target="_blank" href="https://www.linkedin.com/in/larissakoliveira/"> Linkedin 
+<a target="_blank" href="https://www.linkedin.com/in/larissakoliveira/">Linkedin 
 	
 </a>
