@@ -33,75 +33,19 @@ It is being developed in accordance with **best practices** of directory/files, 
 
 #### Endpoints
 
-#### POST /user
-<p>Correct request with all fields required</p>
-![image](https://user-images.githubusercontent.com/82476805/174492787-b32abae3-9c23-41e8-8940-2d2e8f221ec7.png)
-
-<p>Password does not meet minimum security requirements</p>
-![image](https://user-images.githubusercontent.com/82476805/174492809-89abb621-51d2-41df-a19c-127fb303a8af.png)
-
-<p>User already exists</p>
-![image](https://user-images.githubusercontent.com/82476805/174494245-190074c1-c524-47a3-aafa-7058ab654c0e.png)
-
-#### POST /auth 
-<p>Correct request with all required fields</p>
-![image](https://user-images.githubusercontent.com/82476805/174492843-25de9927-e1a3-4c4f-831f-ba5acf55385a.png)
-<p>Incorrect password</p>
-![image](https://user-images.githubusercontent.com/82476805/174492862-6626fb97-7d90-4fe1-9c56-6edbf5120ecd.png)
+##### POST /user
+##### POST /auth 
 
 ### **Authentication token required for all endpoins below**
-#### POST /shows
-<p>Correct request with all required fields</p>
-![image](https://user-images.githubusercontent.com/82476805/174492967-20811844-649c-480e-bec7-bdb4a1875eca.png)
-<p>Request missing any field</p>
-![image](https://user-images.githubusercontent.com/82476805/174493512-bb8951e2-b638-46d4-bc10-d1388e0d83ca.png)
-
-#### GET /shows
-![image](https://user-images.githubusercontent.com/82476805/174493732-15dc3273-7cdd-4aaf-95cf-0e7f996e6bcb.png)
-
-#### GET /shows/id
-![image](https://user-images.githubusercontent.com/82476805/174493719-67f677dc-204a-4719-8188-c30319efa7a4.png)
-
-#### PATCH /shows/id
-<p>Show id exists</p>
-![image](https://user-images.githubusercontent.com/82476805/174493996-782c75d9-1040-470e-a5f8-a412ed045270.png)
-
-<p>Show id does not exist</p>
-![image](https://user-images.githubusercontent.com/82476805/174493789-73f11fc5-f150-475d-865e-1fd2256bc5d9.png)
-
-
-#### DELETE /shows/id
-<p>Show id exists</p>
-![image](https://user-images.githubusercontent.com/82476805/174494016-71dacf80-6622-481c-a6d8-5c397616ac3a.png)
-
-<p>Show id does not exist</p>
-![image](https://user-images.githubusercontent.com/82476805/174494004-10db31c6-2989-457e-86c3-d28d04f34ee2.png)
-
-#### POST /list
-<p>Add show by its id</p>
-![image](https://user-images.githubusercontent.com/82476805/174494063-049b32bd-e665-476b-abee-a479c388bfc2.png)
-
-<p>Show id does not exist</p>
-![image](https://user-images.githubusercontent.com/82476805/174494035-6b3eba66-c327-4e32-a140-2aa735964a65.png)
-
-#### GET /list
-![image](https://user-images.githubusercontent.com/82476805/174494113-398ec4bc-6735-4004-891f-fd3e43092cfa.png)
-
-#### DELETE /list
-<p>Show deleted from user's list</p>
-![image](https://user-images.githubusercontent.com/82476805/174494148-45ed71cf-7846-4178-83d9-5ab503d87f0d.png)
-
-<p>Show id does not exist</p>
-![image](https://user-images.githubusercontent.com/82476805/174494118-aaf01b4a-e0c2-48c5-84ea-b2290f32e569.png)
-
-#### POST /episodes
-<p>Correct request with all required fields</p>
-![image](https://user-images.githubusercontent.com/82476805/174494210-d5f9e2bd-59cf-43fe-9875-3363e96ed844.png)
-<p>Show id does not exist</p>
-![image](https://user-images.githubusercontent.com/82476805/174494263-fc079a1f-b46b-49f3-bd00-8485c810ca65.png)
-<p>Request missing any field</p>
-![image](https://user-images.githubusercontent.com/82476805/174494289-18e1a85a-21d3-4aff-9d06-8af0ed6b5c95.png)
-
+##### POST /shows
+##### GET /shows
+##### GET /shows/id
+##### PATCH /shows/id
+##### DELETE /shows/id
+##### POST /list
+##### GET /list
+##### DELETE /list
+##### POST /episodes
 
 ### Techs
 
