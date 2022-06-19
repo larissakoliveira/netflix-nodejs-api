@@ -28,7 +28,9 @@ This project is a simple clone of Netflix. It is being done during an incredible
 It is being developed in accordance with **best practices** of directory/files, structures and coding.
 
 ### API 
+#### [Swagger Documentation](http://localhost:3000/api-documentation/)
 #### Diagram
+
 ![image](https://user-images.githubusercontent.com/82476805/174491343-a25bb97d-2ef0-48d6-bb9a-754d2f5e0947.png)
 
 #### Endpoints
