@@ -11,7 +11,7 @@ class EpisodeController {
       const episodeBody = req.body;
       const createdEpisode = await episodeService.create(episodeBody)
 
-      res.status(HTTP_STATUS.CREATED).json(createdEpisode)
+      res.status(HTTP_STATUS.OK).json(createdEpisode)
     } catch (e) {
       res.errorHandler && res.errorHandler(e)
     }

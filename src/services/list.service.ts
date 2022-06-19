@@ -57,8 +57,11 @@ class ListService {
 
   async delete(showId: number, user: User) {
     const show = await this.showRepository.findOne({ where: { id: showId } })
+    if (!show) {
+      throw new NotFoundException(`The show id ${showId} was not found`)
+    }
     const newUserList = user.list.filter(show => show.id !== showId)
-    this.userRepository.save({ ...user, list: newUserList })
+    await this.userRepository.save({ ...user, list: newUserList })
     return show
   }
 }
