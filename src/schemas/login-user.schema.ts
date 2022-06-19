@@ -1,5 +1,5 @@
-import Joi from "joi";
-import { regexPassword } from "../utils";
+import Joi from "joi"
+import { regexPassword } from "../utils"
 
 const loginSchema = Joi.object({
   email: Joi.string().required().email(),

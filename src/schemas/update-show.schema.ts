@@ -1,14 +1,15 @@
-import Joi from "joi";
-import { ShowCategoryOptions } from "../types/enums";
-import { JoiEnumOfString } from "../utils";
+import Joi from "joi"
+import { JoiEnumOfString } from "../utils"
+import { ShowCategoryOptions } from "../types/enums"
 
 const updateShowSchema = Joi.object({
-  cover: Joi.string().required(),
-  title: Joi.string().required(),
-  director: Joi.string().required(),
-  actors: Joi.array().items(Joi.string()).required(),
-  description: Joi.string().required(),
-  category: JoiEnumOfString(ShowCategoryOptions)
+  cover: Joi.string(),
+  title: Joi.string(),
+  director: Joi.string(),
+  actors: Joi.array().items(Joi.string()),
+  description: Joi.string(),
+  category: JoiEnumOfString(ShowCategoryOptions),
+  episodes: Joi.array().items(Joi.object())
 })
 
 export default updateShowSchema

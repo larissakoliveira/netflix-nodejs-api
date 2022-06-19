@@ -1,11 +1,11 @@
 import { Repository } from "typeorm"
-import { AppDataSource } from "../../configs/database/data-source"
-import { NotFoundException, ConflictException } from '../exceptions'
-import { CreateShowDTO, IShow } from "../types/interfaces"
 import { Show } from "../entities"
+import { CreateShowDTO, IShowUpdate } from "../types/interfaces"
+import { NotFoundException, ConflictException } from '../exceptions'
+import { AppDataSource } from "../infrastructure/database/data-source"
 
 class ShowService {
-  private showRepository: Repository<IShow>
+  private showRepository: Repository<Show>
 
   constructor() {
     this.showRepository = AppDataSource.getRepository(Show)
@@ -14,9 +14,8 @@ class ShowService {
    /**
    * Create new shows
    *
-   * @returns Retrive created show
+   * @returns Retrieve created show
    * @param {IShow} show show data
-   * @beta
    */
 
   async create(show: CreateShowDTO){
@@ -28,29 +27,27 @@ class ShowService {
   }
 
    /**
-   * Retrive all shows
+   * Retrieve all shows
    *
-   * @returns Retrive all shows
+   * @returns Retrieve all shows
    *
-   * @beta
    */
     list() {
       return this.showRepository.find()
     }
 
    /**
-   * Retrive a show by its id
+   * Retrieve a show by its id
    *
-   * @returns Retrive one show
+   * @returns Retrieve one show
    * @param {number} id show id
-   * @beta
    */
     async listById(id: number) {
       const show = await this.showRepository.findOne({ where: { id } });
       if (show) {
         return show;
       }
-      throw new NotFoundException(`The show id = ${id} was not found`);
+      throw new NotFoundException(`The show id ${id} was not found`);
     }
 
      /**
@@ -59,14 +56,13 @@ class ShowService {
    * @returns Update one show
    * @param {number} id show id
    * @param {IShow} updatedData body sent with show data to update
-   * @beta
    */
-      async updateById(id: number, updatedData: IShow) {
+      async updateById(id: number, updatedData: IShowUpdate) {
         const show = await this.showRepository.update({ id }, updatedData);
         if (show.affected === 0) {
           throw new NotFoundException(`The show with id = ${id} was not found`);
         }
-        return show
+        return updatedData
       }
 
     /**
@@ -74,14 +70,14 @@ class ShowService {
    *
    * @returns Delete one show
    * @param {number} id show id
-   * @beta
    */
     async deleteById(id: number) {
+      const deletedShow = await this.showRepository.findOne({ where: { id } });
       const show = await this.showRepository.delete(id);
       if (show.affected) {
-        return show;
+        return deletedShow
       }
-      throw new NotFoundException(`The show id = ${id} was not found`);
+      throw new NotFoundException(`The show id ${id} was not found`);
     }
 }
 

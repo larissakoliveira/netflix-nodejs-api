@@ -2,8 +2,7 @@ import bcrypt from 'bcrypt';
 import jwt from "jsonwebtoken"
 import UserService from "./user.service"
 import UnauthorizedException from '../exceptions/unauthorized.exception';
-import dotenv from 'dotenv';
-dotenv.config()
+
 class AuthService {
    /**
    * It does the user authentication, login
@@ -14,6 +13,8 @@ class AuthService {
    **/
     async login(email: string, password: string) {
       const userService = new UserService()
+      const secretKey = process.env.SECRET_KEY || ""
+
       const user = await userService.getUserByEmail(email)
 
       if (!user){
@@ -25,11 +26,12 @@ class AuthService {
       if (!verifyPassword){
         throw new UnauthorizedException()
       }
+
       const token = jwt.sign({
         sub: user.id,
         iat: Date.now(),
         email: user.email
-      }, "my_secret_key")
+      }, secretKey)
 
     return {
       token

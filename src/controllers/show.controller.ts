@@ -39,8 +39,8 @@ class ShowController {
     const updatedDataShow = req.body
     const id = req.params.id;
     try {
-      const output = await showService.updateById(+id, updatedDataShow)
-      res.json(output).status(HTTP_STATUS.OK)
+      await showService.updateById(+id, updatedDataShow)
+      res.json(updatedDataShow).status(HTTP_STATUS.OK)
     } catch (error) {
       res.errorHandler && res.errorHandler(error)
     }
@@ -49,8 +49,8 @@ class ShowController {
   public static async deleteById(req: Request, res: CustomResponse) {
     try {
       const id = req.params.id;
-      const shows = await showService.deleteById(+id)
-      res.status(HTTP_STATUS.OK).json(shows)
+      const deletedShow = await showService.deleteById(+id)
+      res.json(deletedShow).status(HTTP_STATUS.OK)
     } catch (error) {
       res.errorHandler && res.errorHandler(error)
     }

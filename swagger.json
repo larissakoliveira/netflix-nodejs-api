@@ -1,0 +1,209 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Netflix-API",
+    "description": "This is a simple Netflix API clone.",
+    "contact": {
+      "name": "API Support",
+      "url": "https://www.linkedin.com/in/larissakoliveira/",
+      "email": "lari@email.com"
+    },
+    "version": "1.0.1"
+  },
+
+  "servers": [
+    {
+      "url": "http://localhost:3000/api-documentation",
+      "description": "Netflix API Documentation"
+    }
+  ],
+  "paths": {
+    "/user": {
+      "post": {
+        "description": "Creates a new user",
+        "tags": ["User"],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/User" }
+            },
+            "examples": {
+              "user": {
+                "values": {
+                  "email": "lari@email.com",
+                  "password": "12!@qwER",
+                  "id": 1
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "400": {
+            "description": "BAD REQUEST. Password does not meet the required parameters",
+            "content": {
+              "application/json": {
+                "example": {
+                  "error": true,
+                  "message": "Invalid fields",
+                  "details": {
+                    "status": 400,
+                    "details": [
+                      {
+                        "message": "\"password\" with value \"senhafraca\" fails to match the password must contain at least 1 lowercase and uppercase letter, 1 special character and 1 number! pattern",
+                        "path": [
+                          "password"
+                        ],
+                        "type": "string.pattern.name",
+                        "context": {
+                          "name": "password must contain at least 1 lowercase and uppercase letter, 1 special character and 1 number!",
+                          "regex": {},
+                          "value": "senhafraca",
+                          "label": "password",
+                          "key": "password"
+                        }
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "CONFLICT",
+            "content": {
+              "application/json": {
+                "example": {
+                  "error": true,
+                "message": "User already exists",
+                "details": {
+                  "status": 409
+                }
+                }
+              }
+            }
+          },
+          "201": {
+            "description": "CREATED",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserResponse"
+                },
+                "example":{
+                  "id": 1,
+	                "email": "lari@email.com"
+                }     
+              }
+            }
+          }
+        }
+      }
+    },
+    "/auth": {
+      "post": {
+        "description": "Check user login authentication to login",
+        "tags": ["User"],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/Token" }
+            },
+            "examples": {
+              "user": {
+                "values": {
+                  "email": "lari@email.com",
+                  "password": "12!@qwER",
+                  "id": 1
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "401": {
+            "description": "Unauthorized. Incorrect email/password",
+            "content": {
+              "application/json": {
+                "example": {
+                  "error": true,
+                  "message": "Unauthorized",
+                  "details": {
+                    "status": 401
+                  }
+                }
+              }
+            }
+          },
+          "200": {
+            "description": "CREATED",
+            "content": {
+              "application/json": {
+                "example": {
+                  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjMsImlhdCI6MTY1NTY0OTcwOTMxMSwiZW1haWwiOiJsYXJpQGdtYWlsLmNvbSJ9.QQ9mlp7nk5lfyzFlP3dUyzA6JzVJ1DImpsQdIxU6Kcg"
+                  },
+                "schema": {
+                  "$ref": "#/components/schemas/Token"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  
+  
+  "components": {
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT"
+      }
+    },
+    "schemas": {
+      "UserResponse": {
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string"
+          },
+          "id": {
+            "type": "number"
+          }
+        }
+      },
+      
+      "User": {
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string"
+          },
+          "password": {
+            "type": "string"
+          }
+        }
+      },
+      "Token": {
+        "type": "object",
+        "properties": {
+          "token": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}

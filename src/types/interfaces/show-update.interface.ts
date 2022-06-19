@@ -1,6 +1,7 @@
+import { Episode } from '../../entities';
 import { ShowCategoryOptions } from '../../types/enums';
 
-interface IShow {
+interface IShowUpdate {
   id: number
   cover: string
   title: string
@@ -8,6 +9,7 @@ interface IShow {
   actors: string[]
   description: string
   category: ShowCategoryOptions
+  episodes: Episode[]
 }
 
-export default IShow;
+export default IShowUpdate;

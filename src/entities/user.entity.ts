@@ -1,4 +1,5 @@
-import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm';
+import { Entity, PrimaryGeneratedColumn, Column, ManyToMany, JoinTable } from 'typeorm';
+import { Show } from './';
 
 @Entity("users")
 class User {
@@ -10,6 +11,10 @@ class User {
 
   @Column({ length: 100 })
   password: string
+
+  @ManyToMany(() => Show, { eager: true })
+  @JoinTable()
+  list: Show[]
 }
 
 export default User

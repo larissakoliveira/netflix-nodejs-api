@@ -1,9 +1,11 @@
 import { Strategy as JwtStrategy, ExtractJwt } from "passport-jwt"
+import swaggerUiExpress from "swagger-ui-express"
+import swaggerDocument from "./swagger.json"
 import passport from "passport"
-import "reflect-metadata"
 import express from "express"
+import "reflect-metadata"
 
-import databaseInitialize from "./configs/database/data-source"
+import databaseInitialize from "./src/infrastructure/database/data-source"
 import startRoutes from "./src/routers"
 
 const app: express.Application = express()
@@ -16,10 +18,16 @@ const opts = {
 }
 
 const strategy = new JwtStrategy(opts, function(payload, done) {
-  return done(null, {});
+  return done(null, {})
 })
 
-passport.use(strategy);
+passport.use(strategy)
+
+app.use(
+  "/api-documentation",
+  swaggerUiExpress.serve,
+  swaggerUiExpress.setup(swaggerDocument)
+)
 
 databaseInitialize()
 startRoutes(app)
