@@ -1,7 +1,5 @@
 import dotenv from 'dotenv';
-// import path from 'path';
 import { DataSource } from "typeorm"
-// import { ConnectionOptions } from 'typeorm';
 
 dotenv.config()
 
@@ -27,8 +25,3 @@ async function databaseInitialize() {
 }
 
 export default databaseInitialize
-
-// const devConfig = {}
-
-// const prodConfig = {}
-// export default process.env.NODE_ENV === 'production' ? prodConfig : devConfig;

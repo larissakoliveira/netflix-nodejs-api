@@ -6,7 +6,7 @@ class Episode {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @Column({ length: 45 })
+  @Column({ length: 45, unique: true })
   title: string;
 
   @Column({ type: "text" })

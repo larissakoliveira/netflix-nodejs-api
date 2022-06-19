@@ -50,7 +50,7 @@ class ShowController {
     try {
       const id = req.params.id;
       const deletedShow = await showService.deleteById(+id)
-      res.status(HTTP_STATUS.OK).json(deletedShow)
+      res.json(deletedShow).status(HTTP_STATUS.OK)
     } catch (error) {
       res.errorHandler && res.errorHandler(error)
     }

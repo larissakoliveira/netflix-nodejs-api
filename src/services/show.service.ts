@@ -6,11 +6,9 @@ import { AppDataSource } from "../infrastructure/database/data-source"
 
 class ShowService {
   private showRepository: Repository<Show>
-  // private episodeRepository: Repository<Episode>
 
   constructor() {
     this.showRepository = AppDataSource.getRepository(Show)
-    // this.episodeRepository = AppDataSource.getRepository(Episode)
   }
 
    /**
