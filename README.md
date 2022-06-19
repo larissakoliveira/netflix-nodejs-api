@@ -34,7 +34,7 @@ It is being developed in accordance with **best practices** of directory/files, 
 #### [Swagger Documentation](http://localhost:3000/api-documentation/)
 #### Diagram
 
-![image](https://user-images.githubusercontent.com/82476805/174491343-a25bb97d-2ef0-48d6-bb9a-754d2f5e0947.png)
+![image](https://user-images.githubusercontent.com/82476805/174504013-e71a62a2-0e1d-4747-ac74-e9bcb7a5c0eb.png)
 
 #### Endpoints
 
