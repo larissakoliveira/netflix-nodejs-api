@@ -1,1 +1,1 @@
-export { default as CreateEpisodeDTO } from "./create-episode-dto"
+export { default as CreateEpisodeDTO } from "./create-episode-dto.type"

@@ -1,13 +1,10 @@
 import logger from "../infrastructure/logger/logger"
-import { User } from "../entities"
 import { ListService } from "../services"
 import { HTTP_STATUS } from "../types/enums"
 import { UnauthorizedException } from "../exceptions"
 import { CustomRequest, CustomResponse } from "../types/interfaces"
-import { AppDataSource } from "../infrastructure/database/data-source"
 
 const listService = new ListService()
-const userRepository = AppDataSource.getRepository(User)
 const winstonLogger = logger({ controller: "ListController" })
 
 class ListController {
@@ -29,9 +26,8 @@ class ListController {
 
   public static async list(req: CustomRequest, res: CustomResponse) {
     try {
-      const userId = req.loggedUser!.id
-      const usersList = await userRepository.findOne({ where: { id: userId } })
-      res.json(usersList?.list).status(HTTP_STATUS.OK)
+      const usersList = req.loggedUser?.list
+      res.json(usersList).status(HTTP_STATUS.OK)
     } catch (error) {
       winstonLogger.error(`Error to retrieve the list! Data: ${JSON.stringify(req.loggedUser)}`)
       res.errorHandler && res.errorHandler(error)
