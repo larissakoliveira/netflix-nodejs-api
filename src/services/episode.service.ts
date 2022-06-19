@@ -26,10 +26,10 @@ class EpisodeService {
     if (!foundShow) {
       throw new BadRequestException(`The show id: ${showId} does not exist`)
     }
-
-    // const episodeAlreadyExists = await this.episodeRepository.findOneBy([{ title: createEpisode.title }, { showId: createEpisode.showId }])
+    const show = await this.showRepository.findOneBy({ id: showId })
+    const episodeExistsInShow = show?.episodes.filter((episode) => episode.title === createEpisode.title)
     const episodeAlreadyExists = await this.episodeRepository.findOneBy({ title: createEpisode.title })
-    if (episodeAlreadyExists !== null) {
+    if (episodeExistsInShow?.length! > 0 || episodeAlreadyExists) {
       throw new ConflictException("A episode with this title already exists.")
     }
 
