@@ -36,11 +36,10 @@ class ShowController {
   }
 
   public static async updateById(req: Request, res: CustomResponse){
-    const updatedDataShow = req.body
     const id = req.params.id;
     try {
-      await showService.updateById(+id, updatedDataShow)
-      res.json(updatedDataShow).status(HTTP_STATUS.OK)
+      const output = await showService.updateById(+id, req.body)
+      res.json(output).status(HTTP_STATUS.OK)
     } catch (error) {
       res.errorHandler && res.errorHandler(error)
     }

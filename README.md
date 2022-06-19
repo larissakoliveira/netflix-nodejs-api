@@ -29,23 +29,23 @@ It is being developed in accordance with **best practices** of directory/files, 
 
 ### API 
 #### Diagram
-![image](https://user-images.githubusercontent.com/82476805/174417123-575d3479-15ad-4ce7-a931-078c795f821e.png)
+![image](https://user-images.githubusercontent.com/82476805/174491343-a25bb97d-2ef0-48d6-bb9a-754d2f5e0947.png)
 
 #### Endpoints
-**Autenticação**
 
-POST /auth - OK
+* POST /user
+* POST /auth 
 
-Request body
-`{
-  "email": "bruno@ethosolucoes.com.br",
-  "password": "abcbanana"
-}`
-Response body
-`{
-  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c"
-}
-`
+##### **Authentication token required for all endpoins below**
+* POST /shows
+* GET /shows
+* GET /shows/id
+* PATCH /shows/id
+* DELETE /shows/id
+* POST /list
+* GET /list
+* DELETE /list
+* POST /episodes
 
 ### Techs
 
@@ -63,6 +63,8 @@ Response body
    * [Passport.js](https://www.passportjs.org/packages/passport-npm/)
    * [Eslint](https://eslint.org/)
    * [Morgan](https://expressjs.com/en/resources/middleware/morgan.html)
+   * [Swagger](https://swagger.io/docs/)
+   * [Jest](https://jestjs.io/pt-BR/)
 
  ### Status
  
@@ -74,6 +76,6 @@ Response body
 ---
 Made with ❤️ by Larissa Oliveira 👋🏽 Get in touch!
 
-<a target="_blank" href="https://www.linkedin.com/in/larissakoliveira/"> Linkedin 
+<a target="_blank" href="https://www.linkedin.com/in/larissakoliveira/">Linkedin 
 	
 </a>
