@@ -13,7 +13,7 @@ This project is the back-end made for this [Front-End](https://github.com/lariss
 ### To start the app <br>
 ```npm start```
 
-### To start the app <br>
+### To run the test <br>
 ```npm test```
 
 ### Table of Contents
