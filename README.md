@@ -32,26 +32,20 @@ It is being developed in accordance with **best practices** of directory/files, 
 ![image](https://user-images.githubusercontent.com/82476805/174491343-a25bb97d-2ef0-48d6-bb9a-754d2f5e0947.png)
 
 #### Endpoints
-**Autenticação**
 
-<p>POST /user </p>
-<p>POST /auth </p>
-<p>POST /shows </p>
-<p>POST /shows/id </p>
-<p>POST /list </p>
-<p>POST /list/id </p>
-<p>POST /episodes </p>
+* POST /user
+* POST /auth 
 
-Request body
-`{
-  "email": "bruno@ethosolucoes.com.br",
-  "password": "abcbanana"
-}`
-Response body
-`{
-  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c"
-}
-`
+##### **Authentication token required for all endpoins below**
+* POST /shows
+* GET /shows
+* GET /shows/id
+* PATCH /shows/id
+* DELETE /shows/id
+* POST /list
+* GET /list
+* DELETE /list
+* POST /episodes
 
 ### Techs
 
@@ -82,6 +76,6 @@ Response body
 ---
 Made with ❤️ by Larissa Oliveira 👋🏽 Get in touch!
 
-<a target="_blank" href="https://www.linkedin.com/in/larissakoliveira/"> Linkedin 
+<a target="_blank" href="https://www.linkedin.com/in/larissakoliveira/">Linkedin 
 	
 </a>
