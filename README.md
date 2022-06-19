@@ -9,9 +9,12 @@ This project is the back-end made for this [Front-End](https://github.com/lariss
 
 ### To install all required dependencies use <br>
 ```npm i```
-<br>
+
 ### To start the app <br>
-```npm start```<br>
+```npm start```
+
+### To start the app <br>
+```npm test```
 
 ### Table of Contents
 =================
